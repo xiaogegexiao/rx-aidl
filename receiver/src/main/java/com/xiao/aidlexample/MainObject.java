@@ -1,25 +1,21 @@
-package com.afollestad.aidlexample;
+package com.xiao.aidlexample;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * @author Aidan Follestad (afollestad)
+ * @author Xiao
  */
 public class MainObject implements Parcelable {
 
-    private String mPath;
+    private String mValue;
 
     public MainObject(Parcel source) {
-        mPath = source.readString();
+        mValue = source.readString();
     }
 
-    public MainObject(String path) {
-        mPath = path;
-    }
-
-    public String getPath() {
-        return mPath;
+    public MainObject(String value) {
+        mValue = value;
     }
 
     @Override
@@ -29,10 +25,10 @@ public class MainObject implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mPath);
+        dest.writeString(mValue);
     }
 
-    public static final Parcelable.Creator<MainObject> CREATOR = new Parcelable.Creator<MainObject>() {
+    public static final Creator<MainObject> CREATOR = new Creator<MainObject>() {
         @Override
         public MainObject[] newArray(int size) {
             return new MainObject[size];

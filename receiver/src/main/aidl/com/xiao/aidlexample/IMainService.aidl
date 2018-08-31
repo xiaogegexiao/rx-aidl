@@ -1,5 +1,5 @@
-package com.afollestad.aidlexample;
-import com.afollestad.aidlexample.MainObject;
+package com.xiao.aidlexample;
+import com.xiao.aidlexample.MainObject;
 
 interface IMainService {
     MainObject[] listFiles(String path);
