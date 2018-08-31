@@ -3,7 +3,7 @@
 This is a basic example of the Android Interface Definition Language, a component of the Android framework
 that allows to separate apps (processes) to communicate with each other using a "contract" (interface).
 
-![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client.png)
+![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_receiver.png)
 ![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client.png)
 
 ### Using this example
