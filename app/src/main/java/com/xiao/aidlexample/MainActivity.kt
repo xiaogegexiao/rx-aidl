@@ -11,6 +11,7 @@ import com.xiao.aidlexamplereceiver.INullBinderService
 import com.xiao.aidlexamplereceiver.IRandomNumberService
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
+import test.xiao.rxaidl.RxAIDLObservable
 
 class MainActivity : RxAppCompatActivity() {
 
@@ -36,7 +37,7 @@ class MainActivity : RxAppCompatActivity() {
             mLog.text = ""
             mLog.append("Binding main service…\n")
             mDisposable?.dispose()
-            mDisposable = AIDLObservable<IMainService, IMainService.Stub>(this, serviceIntent, IMainService::class.java, IMainService.Stub::class.java)
+            mDisposable = RxAIDLObservable<IMainService, IMainService.Stub>(this, serviceIntent, IMainService::class.java, IMainService.Stub::class.java)
                     .compose(bindUntilEvent(ActivityEvent.PAUSE))
                     .subscribe({
                         log.append("onNext.\n")
@@ -56,7 +57,7 @@ class MainActivity : RxAppCompatActivity() {
             mLog.text = ""
             mLog.append("Binding random number service…\n")
             mDisposable?.dispose()
-            mDisposable = AIDLObservable<IRandomNumberService, IRandomNumberService.Stub>(this, serviceIntent, IRandomNumberService::class.java, IRandomNumberService.Stub::class.java)
+            mDisposable = RxAIDLObservable<IRandomNumberService, IRandomNumberService.Stub>(this, serviceIntent, IRandomNumberService::class.java, IRandomNumberService.Stub::class.java)
                     .compose(bindUntilEvent(ActivityEvent.PAUSE))
                     .subscribe({
                         log.append("onNext.\n")
@@ -76,7 +77,7 @@ class MainActivity : RxAppCompatActivity() {
             mLog.text = ""
             mLog.append("Binding not existing service…\n")
             mDisposable?.dispose()
-            mDisposable = AIDLObservable<IRandomNumberService, IRandomNumberService.Stub>(this, serviceIntent, IRandomNumberService::class.java, IRandomNumberService.Stub::class.java)
+            mDisposable = RxAIDLObservable<IRandomNumberService, IRandomNumberService.Stub>(this, serviceIntent, IRandomNumberService::class.java, IRandomNumberService.Stub::class.java)
                     .compose(bindUntilEvent(ActivityEvent.PAUSE))
                     .subscribe({
                         log.append("onNext.\n")
@@ -94,7 +95,7 @@ class MainActivity : RxAppCompatActivity() {
             mLog.text = ""
             mLog.append("Binding null binder service…\n")
             mDisposable?.dispose()
-            mDisposable = AIDLObservable<INullBinderService, INullBinderService.Stub>(this, serviceIntent, INullBinderService::class.java, INullBinderService.Stub::class.java)
+            mDisposable = RxAIDLObservable<INullBinderService, INullBinderService.Stub>(this, serviceIntent, INullBinderService::class.java, INullBinderService.Stub::class.java)
                     .compose(bindUntilEvent(ActivityEvent.PAUSE))
                     .subscribe({
                         log.append("onNext.\n")

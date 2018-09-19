@@ -1,1 +1,1 @@
-include ':app', ':receiver'
+include ':app', ':receiver', ':rxaidl'

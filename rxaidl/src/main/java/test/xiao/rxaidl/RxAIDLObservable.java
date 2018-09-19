@@ -1,4 +1,4 @@
-package com.xiao.aidlexample;
+package test.xiao.rxaidl;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,7 +18,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.MainThreadDisposable;
 
-public class AIDLObservable<SERVICE extends IInterface, STUB extends Binder & IInterface> extends Observable<SERVICE> {
+public class RxAIDLObservable<SERVICE extends IInterface, STUB extends Binder & IInterface> extends Observable<SERVICE> {
 
     private SERVICE mService;
     private Class<SERVICE> serviceClazz;
@@ -26,7 +26,7 @@ public class AIDLObservable<SERVICE extends IInterface, STUB extends Binder & II
     private ContextWrapper contextWrapper;
     private Intent serviceIntent;
     private boolean serviceBound = false;
-    AIDLObservable(
+    public RxAIDLObservable(
             @NonNull ContextWrapper contextWrapper,
             @NonNull Intent intent,
             @NonNull Class<SERVICE> serviceClass,

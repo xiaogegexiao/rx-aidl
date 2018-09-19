@@ -3,8 +3,11 @@
 This is a basic example of the Android Interface Definition Language, a component of the Android framework
 that allows to separate apps (processes) to communicate with each other using a "contract" (interface).
 
+![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client1.png)
+![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client2.png)
+![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client3.png)
+![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client4.png)
 ![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_receiver.png)
-![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client.png)
 
 ### Using this example
 
@@ -15,3 +18,7 @@ and uses methods declared in the service.
 
 Note it also tells you how long it took to receive the entire response from the Service, AIDL is *very* fast
 compared to other forms of IPC.
+
+## About RxAIDLObservable
+
+To use RxAIDLObservable
