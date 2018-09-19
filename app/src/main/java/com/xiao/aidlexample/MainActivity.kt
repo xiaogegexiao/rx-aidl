@@ -2,9 +2,7 @@ package com.xiao.aidlexample
 
 import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.os.Bundle
-import android.os.IBinder
 import android.os.RemoteException
 import android.widget.TextView
 import com.trello.rxlifecycle2.android.ActivityEvent
@@ -24,23 +22,6 @@ class MainActivity : RxAppCompatActivity() {
     private var mService: IMainService? = null
     private var mRandomNumberService: IRandomNumberService? = null
     private lateinit var mLog: TextView
-
-    private val mConnection = object : ServiceConnection {
-
-        override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            mLog.append("Service binded!\n")
-            mService = IMainService.Stub.asInterface(service)
-
-            performListing()
-        }
-
-        override fun onServiceDisconnected(className: ComponentName) {
-            mService = null
-            // This method is only invoked when the service quits from the other end or gets killed
-            // Invoking exit() from the AIDL interface makes the Service kill itself, thus invoking this.
-            mLog.append("Service disconnected.\n")
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
