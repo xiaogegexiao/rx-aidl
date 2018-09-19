@@ -1,6 +1,9 @@
-# AIDL Example
+# Reactive AIDL with example
 
-This is a basic example of the Android Interface Definition Language, a component of the Android framework
+This is a reactive implementation of AIDL with examples of how to use the lib
+
+## What is AIDL
+AIDL is Android Interface Definition Language, a component of the Android framework
 that allows to separate apps (processes) to communicate with each other using a "contract" (interface).
 
 ![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client1.png)
@@ -9,7 +12,7 @@ that allows to separate apps (processes) to communicate with each other using a 
 ![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_client4.png)
 ![Screenshot](https://github.com/xiaogegexiao/AIDL_Example/blob/master/screenshots/screenshot_receiver.png)
 
-### Using this example
+## Using this example
 
 To observe this example project work, you must first install the `receiver` module on your device
 (it doesn't show any UI, it's just a `Service`). Once it's installed, install and run the `app` module
@@ -19,6 +22,61 @@ and uses methods declared in the service.
 Note it also tells you how long it took to receive the entire response from the Service, AIDL is *very* fast
 compared to other forms of IPC.
 
-## About RxAIDLObservable
+# Importing the RxAIDLObservable library
+## Gradle
+Add the ```JitPack``` repository to the root ```build.gradle``` file of your project
+```groovy
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
+	}
+}
+```
 
-To use RxAIDLObservable
+Import the library in your app's module ```build.gradle```
+```groovy
+dependencies {
+    ...
+    implementation 'com.github.xiaogegexiao:rxaidl:1.1'
+}
+```
+
+##AIDL
+```aidl
+// IRandomNumberService.aidl
+package com.xiao.aidlexamplereceiver;
+
+// Declare any non-default types here with import statements
+
+interface IRandomNumberService {
+    int getRandomNumber(int range);
+}
+
+```
+
+## Kotlin
+To bind to a service thro AIDL 
+```kotlin
+private var mDisposable: Disposable? = null
+val serviceIntent = Intent().setComponent(ComponentName(
+                            "com.xiao.aidlexamplereceiver",
+                            "com.xiao.aidlexamplereceiver.RandomNumberService"))
+mDisposable?.dispose()
+mDisposable = RxAIDLObservable<IRandomNumberService, IRandomNumberService.Stub>(this, serviceIntent, IRandomNumberService::class.java, IRandomNumberService.Stub::class.java)
+        .compose(bindUntilEvent(ActivityEvent.PAUSE))
+        .subscribe({
+            log.append("onNext.\n")
+            mRandomNumberService = it
+            getRandomNumber()
+        }, {
+            log.append("onError ${it.message}.\n")
+        }, {
+            log.append("onComplete.\n")
+        })
+```
+
+To unbind to a service 
+```kotlin
+mDisposable?.dispose()
+```
