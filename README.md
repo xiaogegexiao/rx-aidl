@@ -6,11 +6,11 @@ This is a reactive implementation of AIDL with examples of how to use the lib
 AIDL is Android Interface Definition Language, a component of the Android framework
 that allows to separate apps (processes) to communicate with each other using a "contract" (interface).
 
-![Screenshot](https://github.com/xiaogegexiao/rxaidl/blob/master/screenshots/screenshot_client1.png)
-![Screenshot](https://github.com/xiaogegexiao/rxaidl/blob/master/screenshots/screenshot_client2.png)
-![Screenshot](https://github.com/xiaogegexiao/rxaidl/blob/master/screenshots/screenshot_client3.png)
-![Screenshot](https://github.com/xiaogegexiao/rxaidl/blob/master/screenshots/screenshot_client4.png)
-![Screenshot](https://github.com/xiaogegexiao/rxaidl/blob/master/screenshots/screenshot_receiver.png)
+![Screenshot](https://github.com/xiaogegexiao/rx-aidl/blob/master/screenshots/screenshot_client1.png)
+![Screenshot](https://github.com/xiaogegexiao/rx-aidl/blob/master/screenshots/screenshot_client2.png)
+![Screenshot](https://github.com/xiaogegexiao/rx-aidl/blob/master/screenshots/screenshot_client3.png)
+![Screenshot](https://github.com/xiaogegexiao/rx-aidl/blob/master/screenshots/screenshot_client4.png)
+![Screenshot](https://github.com/xiaogegexiao/rx-aidl/blob/master/screenshots/screenshot_receiver.png)
 
 ## Using this example
 
