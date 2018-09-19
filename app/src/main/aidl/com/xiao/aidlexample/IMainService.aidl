@@ -3,6 +3,4 @@ import com.xiao.aidlexample.MainObject;
 
 interface IMainService {
     MainObject[] listFiles(String path);
-
-    void exit();
 }

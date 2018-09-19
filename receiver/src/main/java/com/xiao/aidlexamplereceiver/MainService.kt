@@ -37,12 +37,6 @@ class MainService : Service() {
                 toSend.add(MainObject("/example/item" + (i + 1)))
             return toSend.toTypedArray()
         }
-
-        @Throws(RemoteException::class)
-        override fun exit() {
-            log("Received exit command.")
-            stopSelf()
-        }
     }
 
     private fun log(message: String) {
@@ -110,6 +104,11 @@ class MainService : Service() {
             stopSelf()
         }
         return Service.START_STICKY
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        log("Received service onCreate")
     }
 
     override fun onBind(intent: Intent): IBinder? {

@@ -4,16 +4,49 @@
     android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/log"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:lineSpacingMultiplier="1.6"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:textSize="16sp"
-        tools:text="Log" />
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/bind_mainservice_button"
+            android:text="Bind main service"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bind_randomnumberservice_button"
+            android:text="Bind random number service"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bind_notexistingservice_button"
+            android:text="Bind not existing service"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/bind_nullbinderservice_button"
+            android:text="Bind null binder service"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/log"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.6"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:textSize="16sp"
+            tools:text="Log" />
+    </LinearLayout>
 
 </ScrollView>
