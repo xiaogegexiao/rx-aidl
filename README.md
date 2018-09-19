@@ -38,7 +38,7 @@ Import the library in your app's module ```build.gradle```
 ```groovy
 dependencies {
     ...
-    implementation 'com.github.xiaogegexiao:rxaidl:1.1'
+    implementation 'com.github.xiaogegexiao:rx-aidl:1.2'
 }
 ```
 
